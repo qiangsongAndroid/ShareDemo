@@ -11,10 +11,28 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs{
+        release {
+            storeFile file('../debug.keystore')
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug{
+             debuggable true
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+
         }
     }
 }
@@ -25,4 +43,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile files('D:/ex/LoginAndShare-master/ShareDemo2/libs/open_sdk_r5788.jar')
+    compile 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
 }

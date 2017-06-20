@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.administrator.sharedemo.sina.WBShareActivity;
 import com.example.administrator.sharedemo.wxapi.WXEntryActivity;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this,WXEntryActivity.class));
+                    }
+                });
+
+                sina.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, WBShareActivity.class));
                     }
                 });
             }
